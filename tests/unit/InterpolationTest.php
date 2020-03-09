@@ -15,7 +15,7 @@ class InterpolationTest extends TestCase
 {
     const EXAMPLE_LOAN_AMOUNT = 2750;
     const EXAMPLE_LOAN_TERM = 24;
-    const EXAMPLE_EXPECTED_FEE = 115.0;
+    const EXAMPLE_EXPECTED_FEE = 114.0;
     
     public function testInterpolationCanConstructWithMocks() : void
     {
