@@ -34,5 +34,4 @@ Also running example.php will go through the whole flow of getting a fee calcula
 I use travis, codesniffer, phpunit and coveralls for builds.
 Code must follow both PSR1 and PSR12 standards.
 All tests must pass.
-Minimum test coverage is 100%
-100% unit tested. [![Coverage Status](https://coveralls.io/repos/github/rywilson1092/Lendable-Tech-Test/badge.svg?branch=master)](https://coveralls.io/github/rywilson1092/Lendable-Tech-Test?branch=master)
+Minimum test coverage is 100% [![Coverage Status](https://coveralls.io/repos/github/rywilson1092/Lendable-Tech-Test/badge.svg?branch=master)](https://coveralls.io/github/rywilson1092/Lendable-Tech-Test?branch=master)
