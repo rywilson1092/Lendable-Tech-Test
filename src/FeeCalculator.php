@@ -14,8 +14,14 @@ use Lendable\Interview\Interpolation\Traits\FeeBoundsHelper;
 use Lendable\Interview\Interpolation\Traits\LoanFeeRounder;
 use Exception;
 
+/**
+ * Used for calculating the fee based on LoanApplication data and fee bounds
+ */
 class FeeCalculator implements FeeCalculatorInterface
 {
+    /**
+     * Helpers
+     */
     use SortFeeBoundsByLoanAmountAndTerm;
     use FeeBoundsHelper;
     use LoanFeeRounder;
@@ -23,16 +29,30 @@ class FeeCalculator implements FeeCalculatorInterface
     private const NO_FEE_EXCEPTION = 'Error no fee found.';
     private const ROUND_TO_NEAREST = 5;
 
+    /**
+     * Array that holds feeBounds items.
+     *
+     * @var array
+     */
     private $feeBoundsArray = array();
 
+    /**
+     * Once initialised the calculater will get an ascending ordered
+     * array of FeeBounds from FeeBoundsCollection
+     *
+     * @param FeeBoundCollectionInterface $feeBoundCollection
+     */
     public function __construct(FeeBoundCollectionInterface $feeBoundCollection)
     {
-        /* Get the bounds */
         $this->feeBoundsArray = $this->getSortedArray($feeBoundCollection);
     }
 
     /**
-     * @return float The calculated total fee.
+     * This function will calculate the Fee based on the loan application
+     * by comparing with FeeBounds and interpolating if necessary. Will also round
+     *
+     * @param LoanApplicationInterface $loanApplication
+     * @return float
      */
     public function calculate(LoanApplicationInterface $loanApplication): float
     {
@@ -40,15 +60,17 @@ class FeeCalculator implements FeeCalculatorInterface
         for ($i = 0; $i < count($this->feeBoundsArray) - 1; $i++) {
             /* if feeBoundsArray item loanAmount and term is equal then no interpolation required */
 
-            if ($this->doesFeeExist($loanApplication, $this->feeBoundsArray[$i])
+            if (
+                $this->doesFeeExist($loanApplication, $this->feeBoundsArray[$i])
             ) {
                 $fee = $this->feeBoundsArray[$i]->getFee();
                 break;
-            } elseif ($this->isWithinFeeBoundsAndTermMatch(
-                $loanApplication,
-                $this->feeBoundsArray[$i],
-                $this->feeBoundsArray[$i + 1]
-            )
+            } elseif (
+                $this->isWithinFeeBoundsAndTermMatch(
+                    $loanApplication,
+                    $this->feeBoundsArray[$i],
+                    $this->feeBoundsArray[$i + 1]
+                )
             ) {
                 $interpolation = InterpolationFactory::create(
                     $loanApplication,

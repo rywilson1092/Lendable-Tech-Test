@@ -7,12 +7,24 @@ namespace Lendable\Interview\Interpolation;
 use Lendable\Interview\Interpolation\Model\LoanApplicationInterface;
 use Lendable\Interview\Interpolation\Model\FeeBoundInterface;
 
+/**
+ * This class will calculate interpolated fee using loanApplication
+ * and the FeeBounds it falls between.
+ */
 final class Interpolation implements InterpolationInterface
 {
     private LoanApplicationInterface $loanApplication;
     private FeeBoundInterface $lowerBound;
     private FeeBoundInterface $upperBound;
 
+
+    /**
+     * Will construct the interpolation object.
+     *
+     * @param LoanApplicationInterface $loanApplication
+     * @param FeeBoundInterface $lowerBound
+     * @param FeeBoundInterface $upperBound
+     */
     public function __construct(
         LoanApplicationInterface $loanApplication,
         FeeBoundInterface $lowerBound,
@@ -24,7 +36,9 @@ final class Interpolation implements InterpolationInterface
     }
 
     /**
-     * @return float The calculated total fee.
+     * Will calculate the loan amount by linear interpolating between the bounds.
+     *
+     * @return float
      */
     public function getInterpolatedFee(): float
     {

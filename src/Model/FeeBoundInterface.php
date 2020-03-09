@@ -5,25 +5,28 @@ declare(strict_types=1);
 namespace Lendable\Interview\Interpolation\Model;
 
 /**
- * Interface for FeeBound class
- * We will use for abstracting and mocking.
+ * This a model to represent a FeeBound object
  */
 interface FeeBoundInterface
 {
     /**
-     * getTerm will return the loan duration for this loan application
-     * in number of months.
+     * This will return the loan amount
+     *
+     * @return float
      */
     public function getLoanAmount(): float;
 
     /**
-     * getTerm will return the loan duration for this loan application
-     * in number of months.
+     * Returns the loan term
+     *
+     * @return integer
      */
     public function getLoanTerm(): int;
 
     /**
-     * getAmount retrieves the amount requested for this loan application.
+     * Returns the fee of the loan bound
+     *
+     * @return float
      */
     public function getFee(): float;
 }

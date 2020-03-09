@@ -30,6 +30,13 @@ final class LoanApplication implements LoanApplicationInterface
      */
     private float $amount;
 
+
+    /**
+     * Creates LoanApplication and validates usign the above constants.
+     *
+     * @param float $amount
+     * @param integer $term
+     */
     public function __construct(float $amount, int $term)
     {
         $this->amount = round($amount, 2);
@@ -37,6 +44,12 @@ final class LoanApplication implements LoanApplicationInterface
         $this->validate();
     }
 
+    /**
+     * Validates tbe amount and term. If invalid throws exception.
+     *
+     * @return void
+     * @throws Exception
+     */
     private function validate(): void
     {
         if (!$this->IsLoanAmountValid($this->amount, self::MINIMUM_AMOUNT, self::MAXIMUM_AMOUNT)) {
@@ -51,7 +64,9 @@ final class LoanApplication implements LoanApplicationInterface
     }
 
     /**
-     * Amount requested for this loan application.
+     * Returns the loan amount
+     *
+     * @return float
      */
     public function getAmount(): float
     {
@@ -59,8 +74,9 @@ final class LoanApplication implements LoanApplicationInterface
     }
 
     /**
-     * Term (loan duration) for this loan application
-     * in number of months.
+     * Returns the term of the loan
+     *
+     * @return integer
      */
     public function getTerm(): int
     {

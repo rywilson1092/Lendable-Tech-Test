@@ -9,14 +9,27 @@ use Lendable\Interview\Interpolation\Factories\FeeBoundCollectionFactory;
 use Lendable\Interview\Interpolation\Factories\FeeBoundFactory;
 use Lendable\Interview\Interpolation\Model\FeeBoundInterface;
 use Exception;
-use stdclass;
+use Stdclass;
 
+/**
+ * This class is used to read the FeeBounds from json file.
+ */
 final class FeeBoundReaderJson implements FeeBoundReaderInterface
 {
     private const FILE_NOT_FOUND_MESSAGE = 'The file does not exist';
-    
-    private $feeBoundCollection;
 
+    /**
+     * This holds an array of FeeBound items
+     */
+    private FeeBoundCollectionInterface $feeBoundCollection;
+
+    /**
+     * Once initialised the class will try to read from the json filename provided in input.
+     * This will then be stored in feeBoundCollection propery.
+     *
+     * @param string $filename
+     * @throws Exception when file cannot be found based on filename
+     */
     public function __construct(string $filename)
     {
 
@@ -27,17 +40,35 @@ final class FeeBoundReaderJson implements FeeBoundReaderInterface
         $this->readFile($filename);
     }
 
+    /**
+     * Returns the collection holding FeeBounds array,
+     *
+     * @return FeeBoundCollectionInterface
+     */
     public function getFeeBoundCollection(): FeeBoundCollectionInterface
     {
         return $this->feeBoundCollection;
     }
 
+    /**
+     * Checks if filename exists
+     *
+     * @param string $filename
+     * @return boolean
+     */
     private function doesFileExist(string $filename): bool
     {
         return file_exists($filename);
     }
 
-    private function readFile($filename): void
+    /**
+     * This function will read from the filename
+     * and populate FeeBoundCollection with the FeeBounds found.
+     *
+     * @param string $filename
+     * @return void
+     */
+    private function readFile(string $filename): void
     {
 
         $fileContents = file_get_contents($filename);
@@ -52,6 +83,12 @@ final class FeeBoundReaderJson implements FeeBoundReaderInterface
         $this->feeBoundCollection = FeeBoundCollectionFactory::create(...$feeBoundArray);
     }
 
+    /**
+     * Used for creating FeeBound object from array item retrived from json file.
+     *
+     * @param stdclass $decodedFeeBound
+     * @return FeeBoundInterface
+     */
     private function createFeeBound(stdclass $decodedFeeBound): FeeBoundInterface
     {
 

@@ -6,6 +6,9 @@ namespace Lendable\Interview\Interpolation;
 
 use Lendable\Interview\Interpolation\Model\LoanApplicationInterface;
 
+/**
+ * Used for calculating the fee based on LoanApplication data and fee bounds
+ */
 interface FeeCalculatorInterface
 {
     /**

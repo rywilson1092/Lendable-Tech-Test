@@ -7,16 +7,32 @@ namespace Lendable\Interview\Interpolation\Model;
 use Lendable\Interview\Interpolation\Model\FeeBoundInterface;
 
 /**
- * Interface for FeeBound class
- * We will use for abstracting and mocking.
+ * This a model to represent a FeeBound object
  */
 final class FeeBound implements FeeBoundInterface
 {
-
+    /**
+     * Amount of the loan
+     */
     private float $loanAmount;
+    
+    /**
+     * The lengh og the loan in months
+     */
     private int $loanTerm;
+
+    /**
+     * The fee for this type of loan
+     */
     private float $fee;
 
+    /**
+     * Used to create the FeeBound Object
+     *
+     * @param float $loanAmount
+     * @param integer $loanTerm
+     * @param float $fee
+     */
     public function __construct(float $loanAmount, int $loanTerm, float $fee)
     {
         $this->loanAmount = $loanAmount;
@@ -25,8 +41,9 @@ final class FeeBound implements FeeBoundInterface
     }
 
     /**
-     * getTerm will return the loan duration for this loan application
-     * in number of months.
+     * This will return the loan amount
+     *
+     * @return float
      */
     public function getLoanAmount(): float
     {
@@ -35,8 +52,9 @@ final class FeeBound implements FeeBoundInterface
     }
 
     /**
-     * getTerm will return the loan duration for this loan application
-     * in number of months.
+     * Returns the loan term
+     *
+     * @return integer
      */
     public function getLoanTerm(): int
     {
@@ -44,7 +62,9 @@ final class FeeBound implements FeeBoundInterface
     }
 
     /**
-     * getAmount retrieves the amount requested for this loan application.
+     * Returns the fee of the loan bound
+     *
+     * @return float
      */
     public function getFee(): float
     {

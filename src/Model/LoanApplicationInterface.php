@@ -5,19 +5,22 @@ declare(strict_types=1);
 namespace Lendable\Interview\Interpolation\Model;
 
 /**
- * Interface for cut down loan application class
- * We will use for abstracting and mocking.
+ * A cut down version of a loan application containing
+ * only the required properties for this test.
  */
 interface LoanApplicationInterface
 {
     /**
-     * getTerm will return the loan duration for this loan application
-     * in number of months.
-     */
-    public function getTerm(): int;
-
-    /**
-     * getAmount retrieves the amount requested for this loan application.
+     * Returns the loan amount
+     *
+     * @return float
      */
     public function getAmount(): float;
+
+    /**
+     * Returns the term of the loan
+     *
+     * @return integer
+     */
+    public function getTerm(): int;
 }
