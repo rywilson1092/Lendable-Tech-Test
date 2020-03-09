@@ -10,12 +10,11 @@ before_script:
   - mkdir -p build/logs
 
 script:
-  - php vendor/bin/phpunit -c build/logs/clover.xml
+  - vendor/bin/phpunit --coverage-clover=build/logs/clover.xml
   - vendor/bin/phpcs --standard=PSR1 src
   - vendor/bin/phpcs --standard=PSR12 src
 
 after_script:
-  - php vendor/bin/coveralls
   - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
 
 after_success:
