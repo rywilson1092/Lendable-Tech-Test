@@ -1,0 +1,16 @@
+version: "3.2"
+services:
+  php7:
+    container_name: 'app'
+    build: './docker/php7/'
+    volumes:
+      - .:/usr/src/lendable-test
+    working_dir: /usr/src/lendable-test
+
+  composer:
+    container_name: 'build'
+    build: './docker/php7/'
+    volumes:
+      - .:/usr/src/lendable-test
+    working_dir: /usr/src/lendable-test
+    command: composer install
