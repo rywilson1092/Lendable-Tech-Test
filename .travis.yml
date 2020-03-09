@@ -12,7 +12,6 @@ before_script:
 script:
   - vendor/bin/phpunit --coverage-clover=build/logs/clover.xml
   - vendor/bin/phpcs --standard=PSR1 src
-  - vendor/bin/phpcs --standard=PSR2 src
   - vendor/bin/phpcs --standard=PSR12 src
 
 after_script:
