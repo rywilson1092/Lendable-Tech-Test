@@ -60,17 +60,15 @@ class FeeCalculator implements FeeCalculatorInterface
         for ($i = 0; $i < count($this->feeBoundsArray) - 1; $i++) {
             /* if feeBoundsArray item loanAmount and term is equal then no interpolation required */
 
-            if (
-                $this->doesFeeExist($loanApplication, $this->feeBoundsArray[$i])
+            if ($this->doesFeeExist($loanApplication, $this->feeBoundsArray[$i])
             ) {
                 $fee = $this->feeBoundsArray[$i]->getFee();
                 break;
-            } elseif (
-                $this->isWithinFeeBoundsAndTermMatch(
-                    $loanApplication,
-                    $this->feeBoundsArray[$i],
-                    $this->feeBoundsArray[$i + 1]
-                )
+            } elseif ($this->isWithinFeeBoundsAndTermMatch(
+                $loanApplication,
+                $this->feeBoundsArray[$i],
+                $this->feeBoundsArray[$i + 1]
+            )
             ) {
                 $interpolation = InterpolationFactory::create(
                     $loanApplication,
