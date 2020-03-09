@@ -21,7 +21,8 @@ Docker And Git
 1. To get started please ensure you have docker installed on your computer.
 2. Please go to root directory of project.
 3. Run docker-compose build && docker-compose up in the terminal. This will setup everything needed to run the project.
-4. Use docker exec -it app 'php example.php'
+4. Use docker exec -it app php example.php
+5. You should see the result of 115 returned.
 
 ## Running the tests
 
