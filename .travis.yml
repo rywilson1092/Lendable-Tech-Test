@@ -10,7 +10,7 @@ before_script:
   - mkdir -p build/logs
 
 script:
-  - php vendor/bin/phpunit -c phpunit.xml.dist
+  - php vendor/bin/phpunit -c build/logs/clover.xml
   - vendor/bin/phpcs --standard=PSR1 src
   - vendor/bin/phpcs --standard=PSR12 src
 
