@@ -6,9 +6,10 @@ namespace Lendable\Interview\Interpolation\Traits;
 
 trait LoanFeeRounder
 {
-    public function RoundFeeByLoanAmount( float $fee , float $loanAmount , float $roundUpToNearest) : float{
+    public function roundFeeByLoanAmount(float $fee, float $loanAmount, float $roundUpToNearest): float
+    {
 
-        $roundedFeeAndLoanAmount = ceil( ( $fee + $loanAmount ) / $roundUpToNearest );        
+        $roundedFeeAndLoanAmount = ceil(( $fee + $loanAmount ) / $roundUpToNearest);
 
         $roundedFeeAndLoanAmount *= $roundUpToNearest;
 

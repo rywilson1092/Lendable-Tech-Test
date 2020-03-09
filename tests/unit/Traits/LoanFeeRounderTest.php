@@ -12,7 +12,7 @@ class LoanFeeRounderTest extends TestCase
 
     public function testLoanAmountAndFeeRoundsTo5Correctly() : void
     {
-        $roundedFee = $this->RoundFeeByLoanAmount( 32 , 2391 , 5);
-        $this->assertEquals( 34 , $this->RoundFeeByLoanAmount( 32 , 2391 , 5) );
+        $roundedFee = $this->roundFeeByLoanAmount( 32 , 2391 , 5);
+        $this->assertEquals( 34 , $this->roundFeeByLoanAmount( 32 , 2391 , 5) );
     }
 }

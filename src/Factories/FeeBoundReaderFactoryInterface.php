@@ -8,7 +8,7 @@ use Lendable\Interview\Interpolation\FeeBoundReaderInterface;
 
 interface FeeBoundReaderFactoryInterface
 {
-    const INCORRECT_TYPE_EXCEPTION = 'Type of reader not found';
+    
     /**
      * @return FeeBoundReaderInterface
      */

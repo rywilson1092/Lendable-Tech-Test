@@ -15,10 +15,10 @@ class InterpolationFactory implements InterpolationFactoryInterface
      * @return InterpolationInterface
      */
     public static function create(
-        LoanApplicationInterface $loanApplication , 
-        FeeBoundInterface $lowerBound , 
+        LoanApplicationInterface $loanApplication,
+        FeeBoundInterface $lowerBound,
         FeeBoundInterface $upperBound
-    ): InterpolationInterface{
-        return new Interpolation($loanApplication , $lowerBound, $upperBound);
+    ): InterpolationInterface {
+        return new Interpolation($loanApplication, $lowerBound, $upperBound);
     }
 }

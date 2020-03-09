@@ -14,10 +14,10 @@ final class Interpolation implements InterpolationInterface
     private FeeBoundInterface $upperBound;
 
     public function __construct(
-        LoanApplicationInterface $loanApplication, 
-        FeeBoundInterface $lowerBound, 
+        LoanApplicationInterface $loanApplication,
+        FeeBoundInterface $lowerBound,
         FeeBoundInterface $upperBound
-    ){
+    ) {
         $this->loanApplication = $loanApplication;
         $this->lowerBound = $lowerBound;
         $this->upperBound = $upperBound;
@@ -26,7 +26,8 @@ final class Interpolation implements InterpolationInterface
     /**
      * @return float The calculated total fee.
      */
-    public function getInterpolatedFee(): float{
+    public function getInterpolatedFee(): float
+    {
 
         $upperBoundFee = $this->upperBound->getFee();
         $lowerBoundFee = $this->lowerBound->getFee();
@@ -36,8 +37,8 @@ final class Interpolation implements InterpolationInterface
         $loanApplicationAmount = $this->loanApplication->getAmount();
 
         $interpolatedFee = (
-            (($upperBoundFee - $lowerBoundFee) * ($loanApplicationAmount - $lowerBoundAmount )) 
-            / 
+            (($upperBoundFee - $lowerBoundFee) * ($loanApplicationAmount - $lowerBoundAmount ))
+            /
             ($upperBoundAmount - $lowerBoundAmount)) + $lowerBoundFee;
 
         return $interpolatedFee;

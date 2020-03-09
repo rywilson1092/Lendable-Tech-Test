@@ -6,5 +6,5 @@ namespace Lendable\Interview\Interpolation\Model\Collections;
 
 interface FeeBoundCollectionInterface
 {
-    public function getFeeBounds() : array;
+    public function getFeeBounds(): array;
 }

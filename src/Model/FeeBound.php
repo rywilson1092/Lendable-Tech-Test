@@ -17,7 +17,8 @@ final class FeeBound implements FeeBoundInterface
     private int $loanTerm;
     private float $fee;
 
-    public function __construct( float $loanAmount , int $loanTerm , float $fee){
+    public function __construct(float $loanAmount, int $loanTerm, float $fee)
+    {
         $this->loanAmount = $loanAmount;
         $this->loanTerm = $loanTerm;
         $this->fee = $fee;
@@ -27,7 +28,8 @@ final class FeeBound implements FeeBoundInterface
      * getTerm will return the loan duration for this loan application
      * in number of months.
      */
-    public function getLoanAmount(): float {
+    public function getLoanAmount(): float
+    {
 
         return $this->loanAmount;
     }
@@ -36,14 +38,16 @@ final class FeeBound implements FeeBoundInterface
      * getTerm will return the loan duration for this loan application
      * in number of months.
      */
-    public function getLoanTerm(): int {
+    public function getLoanTerm(): int
+    {
         return $this->loanTerm;
     }
 
     /**
      * getAmount retrieves the amount requested for this loan application.
      */
-    public function getFee(): float{
+    public function getFee(): float
+    {
         return $this->fee;
     }
 }

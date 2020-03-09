@@ -18,7 +18,7 @@ class SortFeeBoundsByLoanAmountAndTermTest extends TestCase
         $feeBound1 = FeeBoundFactory::create( 1000, 24, 30);
         $feeBound2 = FeeBoundFactory::create( 1000, 24, 30);
 
-        $this->assertEquals( 0 , $this->SortFeeBoundsByLoanAmountAndTerm($feeBound1, $feeBound2) );
+        $this->assertEquals( 0 , $this->sortFeeBoundsByLoanAmountAndTerm($feeBound1, $feeBound2) );
     }
 
     public function testSortFeeBoundsByLoanAmountHigher() : void
@@ -26,7 +26,7 @@ class SortFeeBoundsByLoanAmountAndTermTest extends TestCase
         $feeBound1 = FeeBoundFactory::create( 2000, 24, 30);
         $feeBound2 = FeeBoundFactory::create( 1000, 24, 30);
 
-        $this->assertEquals( 1 , $this->SortFeeBoundsByLoanAmountAndTerm($feeBound1, $feeBound2) );
+        $this->assertEquals( 1 , $this->sortFeeBoundsByLoanAmountAndTerm($feeBound1, $feeBound2) );
     }
 
     public function testSortFeeBoundsByLoanTermHigher() : void
@@ -34,7 +34,7 @@ class SortFeeBoundsByLoanAmountAndTermTest extends TestCase
         $feeBound1 = FeeBoundFactory::create( 2000, 24, 30);
         $feeBound2 = FeeBoundFactory::create( 2000, 12, 30);
 
-        $this->assertEquals( 1 , $this->SortFeeBoundsByLoanAmountAndTerm($feeBound1, $feeBound2) );
+        $this->assertEquals( 1 , $this->sortFeeBoundsByLoanAmountAndTerm($feeBound1, $feeBound2) );
     }
 
     public function testSortFeeBoundsByLoanAmountLower() : void
@@ -42,7 +42,7 @@ class SortFeeBoundsByLoanAmountAndTermTest extends TestCase
         $feeBound1 = FeeBoundFactory::create( 1000, 24, 30);
         $feeBound2 = FeeBoundFactory::create( 2000, 24, 30);
 
-        $this->assertEquals( -1 , $this->SortFeeBoundsByLoanAmountAndTerm($feeBound1, $feeBound2) );
+        $this->assertEquals( -1 , $this->sortFeeBoundsByLoanAmountAndTerm($feeBound1, $feeBound2) );
     }
 
     public function testGetSortedArray() : void {
@@ -55,7 +55,7 @@ class SortFeeBoundsByLoanAmountAndTermTest extends TestCase
 
         $feeBoundCollection = FeeBoundCollectionFactory::create( ...$feeBoundsArray);
 
-        $sortedArray = $this->GetSortedArray($feeBoundCollection);
+        $sortedArray = $this->getSortedArray($feeBoundCollection);
         /* we will now assert the order has been made ascending i.e 2000, 3000, 4000 for loan amount */
 
         $this->assertEquals($sortedArray[0] , $feeBoundsArray[1]);

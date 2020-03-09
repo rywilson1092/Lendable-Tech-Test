@@ -37,21 +37,21 @@ class FeeCalculatorTest extends TestCase
     {
         $loanApplication = LoanApplicationFactory::create(2000 , 24);
 
-        $this->assertEquals(100 , $this->feeCalculator->Calculate( $loanApplication ));
+        $this->assertEquals(100 , $this->feeCalculator->calculate( $loanApplication ));
     }
 
     public function testFeeCalculatorCanGetExampleResult() : void
     {
         $loanApplication = LoanApplicationFactory::create(2750 , 24);
 
-        $this->assertEquals(115 , $this->feeCalculator->Calculate( $loanApplication ));
+        $this->assertEquals(115 , $this->feeCalculator->calculate( $loanApplication ));
     }
 
     public function testFeeCalculatorUsingDecimals() : void
     {
         $loanApplication = LoanApplicationFactory::create(1346.22 , 24);
 
-        $this->assertEquals(83.78 , $this->feeCalculator->Calculate( $loanApplication ));
+        $this->assertEquals(83.78 , $this->feeCalculator->calculate( $loanApplication ));
     }
 
     public function testFeeCalculatorThrowsExceptionIfNoFee() : void
@@ -59,7 +59,7 @@ class FeeCalculatorTest extends TestCase
         $loanApplication = LoanApplicationFactory::create(2750 , 12);
 
         $this->expectExceptionMessage(self::NO_FEE_EXCEPTION);
-        $this->feeCalculator->Calculate( $loanApplication );
+        $this->feeCalculator->calculate( $loanApplication );
     }
 
 }

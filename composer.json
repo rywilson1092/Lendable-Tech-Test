@@ -1,12 +1,13 @@
 {
-    "name": "Lendable Tech Test",
+    "name": "ryan/lendable-tech-test",
     "description": "My attempt of completing the lendable tech test. Based on interpolating fee values",
     "type": "project",
     "require": {
       "php": ">=7.4",
       "phpunit/phpunit": ">=6.5",
       "phpunit/phpcov": "^5.0",
-      "phpunit/php-code-coverage": "^6.0"
+      "phpunit/php-code-coverage": "^6.0",
+      "squizlabs/php_codesniffer": "*"
     },
     "autoload": {
       "psr-4": {

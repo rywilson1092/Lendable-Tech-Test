@@ -14,8 +14,8 @@ interface InterpolationFactoryInterface
      * @return InterpolationInterface
      */
     public static function create(
-        LoanApplicationInterface $loanApplication , 
-        FeeBoundInterface $lowerBound , 
+        LoanApplicationInterface $loanApplication,
+        FeeBoundInterface $lowerBound,
         FeeBoundInterface $upperBound
     ): InterpolationInterface;
 }

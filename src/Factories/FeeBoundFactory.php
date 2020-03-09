@@ -12,7 +12,8 @@ class FeeBoundFactory implements FeeBoundFactoryInterface
     /**
      * @return FeeBoundInterface
      */
-    public static function create(float $loanAmount , int $loanTerm , float $fee): FeeBoundInterface{
-        return new FeeBound($loanAmount, $loanTerm , $fee);
+    public static function create(float $loanAmount, int $loanTerm, float $fee): FeeBoundInterface
+    {
+        return new FeeBound($loanAmount, $loanTerm, $fee);
     }
 }

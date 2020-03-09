@@ -12,7 +12,8 @@ class LoanApplicationFactory implements LoanApplicationFactoryInterface
     /**
      * @return LoanApplicationInterface
      */
-    public static function create(float $amount, int $term): LoanApplicationInterface{
-        return new LoanApplication($amount , $term);
+    public static function create(float $amount, int $term): LoanApplicationInterface
+    {
+        return new LoanApplication($amount, $term);
     }
 }

@@ -33,55 +33,55 @@ class FeeBoundHelperTest extends TestCase
     {
         $loanApplication = LoanApplicationFactory::create(self::MATCHING_AMOUNT , self::CORRECT_TERM);
 
-        $this->assertTrue($this->DoesFeeExist($loanApplication , $this->testFeeBound1));
+        $this->assertTrue($this->doesFeeExist($loanApplication , $this->testFeeBound1));
     }
 
     public function testDoesFeeExistValidButMissingTerm() : void
     {
         $loanApplication = LoanApplicationFactory::create(self::MATCHING_AMOUNT , self::VALID_MISSING_TERM);
 
-        $this->assertFalse($this->DoesFeeExist($loanApplication , $this->testFeeBound1));
+        $this->assertFalse($this->doesFeeExist($loanApplication , $this->testFeeBound1));
     }
 
     public function testDoesFeeExistLowerAmount() : void
     {
         $loanApplication = LoanApplicationFactory::create(self::LOWER_AMOUNT , self::CORRECT_TERM);
 
-        $this->assertFalse($this->DoesFeeExist($loanApplication , $this->testFeeBound1));
+        $this->assertFalse($this->doesFeeExist($loanApplication , $this->testFeeBound1));
     }
 
     public function testDoesFeeExistHigherAmount() : void
     {
         $loanApplication = LoanApplicationFactory::create(self::HIGHER_AMOUNT , self::CORRECT_TERM);
 
-        $this->assertFalse($this->DoesFeeExist($loanApplication , $this->testFeeBound1));
+        $this->assertFalse($this->doesFeeExist($loanApplication , $this->testFeeBound1));
     }
 
     public function testIsWithinFeeBoundsAndTermMatchTrue() : void
     {
         $loanApplication = LoanApplicationFactory::create(self::HIGHER_AMOUNT , self::CORRECT_TERM);
 
-        $this->assertTrue($this->IsWithinFeeBoundsAndTermMatch($loanApplication , $this->testFeeBound1 , $this->testFeeBound2));
+        $this->assertTrue($this->isWithinFeeBoundsAndTermMatch($loanApplication , $this->testFeeBound1 , $this->testFeeBound2));
     }
 
     public function testIsAboveFeeBoundAndTermMatchFalseAmountLower() : void
     {
         $loanApplication = LoanApplicationFactory::create(self::LOWER_AMOUNT , self::CORRECT_TERM);
 
-        $this->assertFalse($this->IsWithinFeeBoundsAndTermMatch($loanApplication , $this->testFeeBound1 , $this->testFeeBound2));
+        $this->assertFalse($this->isWithinFeeBoundsAndTermMatch($loanApplication , $this->testFeeBound1 , $this->testFeeBound2));
     }
 
     public function testIsAboveFeeBoundAndTermMatchFalseAmountMatching() : void
     {
         $loanApplication = LoanApplicationFactory::create(self::MATCHING_AMOUNT , self::CORRECT_TERM);
 
-        $this->assertFalse($this->IsWithinFeeBoundsAndTermMatch($loanApplication , $this->testFeeBound1 , $this->testFeeBound2));
+        $this->assertFalse($this->isWithinFeeBoundsAndTermMatch($loanApplication , $this->testFeeBound1 , $this->testFeeBound2));
     }
 
     public function testIsAboveFeeBoundAndTermMatchFalseWrongTerm() : void
     {
         $loanApplication = LoanApplicationFactory::create(self::HIGHER_AMOUNT , self::VALID_MISSING_TERM);
 
-        $this->assertFalse($this->IsWithinFeeBoundsAndTermMatch($loanApplication , $this->testFeeBound1 , $this->testFeeBound2));
+        $this->assertFalse($this->isWithinFeeBoundsAndTermMatch($loanApplication , $this->testFeeBound1 , $this->testFeeBound2));
     }
 }

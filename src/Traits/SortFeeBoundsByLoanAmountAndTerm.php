@@ -9,7 +9,8 @@ use Lendable\Interview\Interpolation\Model\Collections\FeeBoundCollectionInterfa
 
 trait SortFeeBoundsByLoanAmountAndTerm
 {
-    public function GetSortedArray( FeeBoundCollectionInterface $feeBoundCollection) : array{
+    public function getSortedArray(FeeBoundCollectionInterface $feeBoundCollection): array
+    {
 
         $clonedFeeBoundCollection = clone $feeBoundCollection;
 
@@ -17,21 +18,21 @@ trait SortFeeBoundsByLoanAmountAndTerm
 
         /* sort the array via loan amount */
         
-        usort($feeBoundsArray, array($this , 'SortFeeBoundsByLoanAmountAndTerm'));
+        usort($feeBoundsArray, array($this , 'sortFeeBoundsByLoanAmountAndTerm'));
 
         return $feeBoundsArray;
     }
 
-    public function SortFeeBoundsByLoanAmountAndTerm(FeeBoundInterface $x, FeeBoundInterface $y) : int
+    public function sortFeeBoundsByLoanAmountAndTerm(FeeBoundInterface $x, FeeBoundInterface $y): int
     {
         
-        if ($x->getLoanAmount() === $y->getLoanAmount() && $x->getLoanTerm() === $y->getLoanTerm() ){
+        if ($x->getLoanAmount() === $y->getLoanAmount() && $x->getLoanTerm() === $y->getLoanTerm()) {
             return 0;
-        }else if ($x->getLoanTerm() > $y->getLoanTerm()){
+        } elseif ($x->getLoanTerm() > $y->getLoanTerm()) {
             return 1;
-        }else if ($x->getLoanAmount() > $y->getLoanAmount()){
+        } elseif ($x->getLoanAmount() > $y->getLoanAmount()) {
             return 1;
-        }else{
+        } else {
             return -1;
         }
     }

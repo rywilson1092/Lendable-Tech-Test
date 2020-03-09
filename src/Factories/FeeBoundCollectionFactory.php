@@ -13,7 +13,8 @@ class FeeBoundCollectionFactory implements FeeBoundCollectionFactoryInterface
     /**
      * @return FeeBoundCollectionInterface
      */
-    public static function create(FeeBoundInterface ...$feeBounds): FeeBoundCollectionInterface{
+    public static function create(FeeBoundInterface ...$feeBounds): FeeBoundCollectionInterface
+    {
         return new FeeBoundCollection(...$feeBounds);
     }
 }

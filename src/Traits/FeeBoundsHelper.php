@@ -9,18 +9,18 @@ use Lendable\Interview\Interpolation\Model\FeeBoundInterface;
 
 trait FeeBoundsHelper
 {
-    public function DoesFeeExist(LoanApplicationInterface $loanApplication , FeeBoundInterface $feeBound) : bool {
+    public function doesFeeExist(LoanApplicationInterface $loanApplication, FeeBoundInterface $feeBound): bool
+    {
         
         return $feeBound->getLoanAmount() === $loanApplication->getAmount() &&
             $feeBound->getLoanTerm() === $loanApplication->getTerm();
     }
 
-    public function IsWithinFeeBoundsAndTermMatch(
-        LoanApplicationInterface $loanApplication , 
+    public function isWithinFeeBoundsAndTermMatch(
+        LoanApplicationInterface $loanApplication,
         FeeBoundInterface $lowerBound,
         FeeBoundInterface $upperBound
-        ): bool
-    {
+    ): bool {
 
         return $loanApplication->getAmount() > $lowerBound->getLoanAmount() &&
                $loanApplication->getAmount() < $upperBound->getLoanAmount() &&

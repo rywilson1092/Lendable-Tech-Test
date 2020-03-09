@@ -11,5 +11,5 @@ interface FeeBoundFactoryInterface
     /**
      * @return FeeBoundInterface
      */
-    public static function create(float $loanAmount , int $loanTerm , float $fee): FeeBoundInterface;
+    public static function create(float $loanAmount, int $loanTerm, float $fee): FeeBoundInterface;
 }

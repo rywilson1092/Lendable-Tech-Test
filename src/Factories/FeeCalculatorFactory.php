@@ -14,7 +14,8 @@ class FeeCalculatorFactory implements FeeCalculatorFactoryInterface
     /**
      * @return FeeCalculatorInterface
      */
-    public static function create(FeeBoundReaderInterface $feeBoundReader): FeeCalculatorInterface {
-        return new FeeCalculator( $feeBoundReader->getFeeBoundCollection());
+    public static function create(FeeBoundReaderInterface $feeBoundReader): FeeCalculatorInterface
+    {
+        return new FeeCalculator($feeBoundReader->getFeeBoundCollection());
     }
 }

@@ -11,5 +11,5 @@ interface LoanApplicationFactoryInterface
     /**
      * @return LoanApplicationInterface
      */
-    public static function create(float $amount , int $term): LoanApplicationInterface;
+    public static function create(float $amount, int $term): LoanApplicationInterface;
 }

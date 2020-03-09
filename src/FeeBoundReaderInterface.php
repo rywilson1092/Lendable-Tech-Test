@@ -8,5 +8,5 @@ use Lendable\Interview\Interpolation\Model\Collections\FeeBoundCollectionInterfa
 
 interface FeeBoundReaderInterface
 {
-    public function getFeeBoundCollection() : FeeBoundCollectionInterface;
+    public function getFeeBoundCollection(): FeeBoundCollectionInterface;
 }
