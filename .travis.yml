@@ -15,5 +15,5 @@ script:
   - vendor/bin/phpcs --standard=PSR12 src
 
 after_script:
-  - php vendor/bin/coveralls -v
+  - php vendor/bin/coveralls
   - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml

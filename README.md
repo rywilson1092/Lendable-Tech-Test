@@ -29,3 +29,7 @@ Docker And Git
 To run the unit tests use docker exec -it app vendor/bin/phpunit
 To view code coverage open  /build/coverage/index.html in your browser using full path.
 Also running example.php will go through the whole flow of getting a fee calculation.
+
+# Code Coverage
+100% unit tested.
+[![Coverage Status](https://coveralls.io/repos/github/rywilson1092/Lendable-Tech-Test/badge.svg?branch=master)](https://coveralls.io/github/rywilson1092/Lendable-Tech-Test?branch=master)
